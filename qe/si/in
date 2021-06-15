@@ -1,0 +1,54 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    wf_collect = .true.
+    tstress = .true.
+    tprnfor = .true.
+    outdir = './'
+    pseudo_dir = './'
+    nstep = 1000
+    dt = 50
+    etot_conv_thr = 1.0d-6  ,
+    forc_conv_thr = 7.0d-4 ,
+    verbosity = 'high'
+ /
+&system
+    ibrav=0
+    a = 1.0
+    nat=2
+    ntyp=1
+    nbnd = 8
+    ecutwfc=44.09917059
+    degauss=0.0
+    occupations='fixed'
+    lspinorb=.false.
+    noncolin=.false.
+    nosym = .true.
+    noinv = .true.
+ /
+ &electrons
+    electron_maxstep = 1000
+    conv_thr =  1.0d-8
+    mixing_beta = 0.7
+    mixing_mode = 'plain'
+
+    diagonalization = 'cg'
+    diago_david_ndim = 4
+    diago_full_acc = .false.
+    startingwfc = 'random'
+ /
+&ions
+/
+&cell
+/
+CELL_PARAMETERS {alat}
+0.0 2.715 2.715
+2.715 0.0 2.715
+2.715 2.715 0.0
+ATOMIC_SPECIES
+ Si1 28.0 Si.upf
+ATOMIC_POSITIONS (crystal)
+Si1 -0.121 -0.122 -0.123
+Si1 0.125 0.125 0.125
+K_POINTS automatic
+ 2 2 2 0 0 0
